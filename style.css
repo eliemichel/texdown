@@ -1,0 +1,127 @@
+/**
+ * texdown - a custom markdown parser
+ * Copyright (c) 2013-2013, Elie Michel. (MIT Licensed)
+ *
+ */
+
+html {
+	background-color : #aaa;
+	
+	padding-top : 20px;
+	padding-bottom : 20px;
+}
+
+body {
+	font-family : 'CMU Serif';
+	
+	width : 21cm;
+	min-height : 29.7cm;
+	margin : auto;
+	margin-bottom : 0px;
+	margin-top : 0px;
+	padding : 0px;
+	
+	overflow : auto;
+	
+	background-color : #fff;
+	
+	box-shadow : 1px 1px 4px #888,
+	             0px 0px 4px #ddd inset;
+}
+
+#main {
+	/*float: left; /* Ça marche, mais allez savoir pourquoi.. */
+	
+	padding-top : 1cm;
+	padding-bottom : 1cm;
+	margin-left : 1cm;
+	margin-right : 1cm;
+	
+	-webkit-box-sizing : border-box;
+	width : 19cm;
+}
+
+pre, code {
+	font-family : 'CMU Typewriter Text Variable Width';
+	
+	padding-left : 2px;
+	padding-right : 2px;
+	
+	background-color : #eee;
+	border : 1px solid #ddd;
+	border-radius : 0.2em;
+}
+
+pre code {
+	background : none;
+	border : none;
+}
+
+h1 {
+	text-align : center;
+}
+
+hr {
+	height : 0px;
+	border : 0px;
+	border-top : 1px solid rgba(0,0,0,0.2);
+	border-bottom : 1px solid rgba(240,240,240,0.5);
+}
+
+ul {
+	list-style-type : none;
+	padding-left : 0.5cm;
+	/*margin-top : -0.4cm;
+	margin-bottom : -0.4cm;*/
+}
+ul li:before {
+	content : '\2013  ';
+}
+
+/* ---------- ENVIRONNEMENTS ----------- */
+
+.title {
+	display : block;
+	font-weight : bold;
+	margin-bottom : -15px;
+}
+
+.env_definition, .env_theoreme, .env_propriete, .env_proposition, .env_lemme,
+.env_corollaire {
+	border-left : 4px double black;
+	margin-left : 0.5cm;
+	padding-left : 0.5em;
+	
+	page-break-inside : avoid;
+}
+
+
+.env_preuve, .env_remarque, .env_exemple {
+	margin-left : 0.5cm;
+	
+	page-break-inside : avoid;
+}
+
+.env_remarques, .env_exemples {
+	page-break-inside : avoid;
+}
+
+.label_env {
+	font-weight : none;
+	font-style : italic;
+}
+
+.proof_end {
+	float : right;
+	
+	width : 0.25cm;
+	height : 0.25cm;
+	
+	margin-top : -1em;
+	
+	border : 1px solid black;
+}
+
+
+
+
