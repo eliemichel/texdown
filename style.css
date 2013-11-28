@@ -96,7 +96,7 @@ ul li:before {
 }
 
 
-.env_preuve, .env_remarque, .env_exemple {
+.env_preuve, .env_remarque, .env_exemple, .env_indent {
 	margin-left : 0.5cm;
 	
 	page-break-inside : avoid;

@@ -31,6 +31,8 @@ var envDeco = {
 	
 	remarques : ['<span class="title">Remarques</span>', ''],
 	exemples  : ['<span class="title">Exemples</span>' , ''],
+	
+	indent : ['<span class="title">LABEL</span>', ''],
 };
 
 
@@ -1058,7 +1060,8 @@ Parser.prototype.tok = function() {
     }
     case 'env_start': {
       var env = this.token.env;
-      var deco = envDeco[env] || ['',''];
+          label = this.token.label,
+          deco = getDeco(env, label);
       this.deco_stack.push(deco[1])
       return deco[0] + '<div class="env_' + env + '">'
     }
@@ -1068,20 +1071,9 @@ Parser.prototype.tok = function() {
     case 'env': {
       var env = this.token.env,
           label = this.token.label,
-          deco = envDeco[env] || ['',''],
-          deco0;
+          deco = getDeco(env, label);
       
-      if (label !== undefined) {
-        deco0 = deco[0]
-          .replace(/\[|\]/g, '')
-          .replace('LABEL', label);
-      }
-      else {
-        deco0 = deco[0]
-          .replace(/\[(.*?)\]/, '')
-      }
-      
-      return deco0 + '<p class="env_' + env + '">'
+      return deco[0] + '<p class="env_' + env + '">'
         + this.inline.output(this.token.text)
         + '</p>' + deco[1] + '\n';
     }
@@ -1101,6 +1093,23 @@ Parser.prototype.tok = function() {
 /**
  * Helpers
  */
+
+function getDeco(env, label) {
+  var deco = envDeco[env] || ['',''],
+      ret;
+  
+  if (label !== undefined) {
+    ret = deco[0]
+      .replace(/\[|\]/g, '')
+      .replace('LABEL', label);
+  }
+  else {
+    ret = deco[0]
+      .replace(/\[(.*?)\]/, '')
+  }
+  
+  return [ret, deco[1]]
+}
 
 function escape(html, encode) {
   return html

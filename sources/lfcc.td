@@ -5,6 +5,7 @@
 Pour le début du cours, *cf* version papier puis version $\TeX$.
 
 
+
 ## Calculabilité
 
 
@@ -140,7 +141,7 @@ et la fonction $(i, X) \mapsto \varphi_i(X)$ est elle aussi récursive partielle
 
 // preuve
 Soit $\varphi_i(X) = \mathcal U(i, x)$  
-Autrement dit, $\varphi_{\langle M \rangle}(X) = f_M(X)= où $M$ est une machine de Turing.
+Autrement dit, $\varphi_{\langle M \rangle}(X) = f_M(X)$ où $M$ est une machine de Turing.
 
 // theoreme (s-n-m)
 Il existe une fonction récursive partielle $s$ telle que  
@@ -244,9 +245,175 @@ Absurde.
 
 */
 
+// indent (Rappel)  
+On ne peut pas énumérer les fonctions totales « calculables ».
+Si on avait une liste $f_1, f_2, \ldots$ de toutes ces fonctions, la fonction
+transversale $d:x \mapsto f_x(x)+1$ serait hors de cette liste.  
+C'est cependant le cas pour les fonctions récursives partielles.
 
+**Objectif** Prouver l'indécidabilité de problèmes.
 
+// definition
+Soient A et B deux préducats sur $\mathbb N$.  
+On dit que $A \leq_m B$ (*A se réduit à B*) s'il existe $h$ récursive totale telle que  
+$\forall x, A(x) \Leftrightarrow B(h(x))$
 
+// propriete
+$\leq_m$ est réflexive et transitive.  
+Si A est décidable et B non vide, alors A se réduit en B.
+
+// propriete
+Si A $\leq_m$ B et B est décidable, alors A est décidable.
+
+// preuve
+$\chi_A(x) = \underset{rec}{\underbrace{\chi_B}}(\underset{rec}{\underbrace{h}}(x))$ est rec.
+
+// corollaire (utilisé en calculcabilité)
+Si $A \leq_m B$ et A est indécidable, alors B est indécidable.
+
+Donc pour prouver l'indécision de B, il suffit de montrer $K \leq_m B$ ou Arrêt $\leq_m B$.
+
+/* exemple
+$P(x) \Leftrightarrow \varphi_x(12) = 13$  
+Montrons que $P$ est indécidable.
+
+On veut montrer que $K \leq_m P$.
+
+*Raisonement informel* :  
+On transforme le programme $x$ en programe $h(x)$ tel que  
+$\begin{array}{r|l}
+\varphi_{h(x)}(y) = & 13 \text{ si } \varphi_x(x) \downarrow \\
+& \uparrow \text{ si } \varphi_x(x) \uparrow
+\end{array}$
+
+Si on a un tel $h$, alors  
+$\begin{array}{rl}
+x\in K & \Rightarrow \varphi_x(x) \downarrow \\
+& \Rightarrow \varphi_{h(x)}(y) = 13 \forall y \\
+& \Rightarrow \varphi_{h(x)}(12) = 13 \\
+& \Rightarrow h(x) \in P \\
+\end{array}$
+
+$\varphi_{h(x)}(y)$ : on calcule $\varphi_x(x)$ et quand ça s'arrête on retourne 13.
+
+*Formellement*  
+On pose $\begin{array}{r|l}
+f(x, y) = & 13 \text{ si } \varphi_x(x) \downarrow\\
+& \uparrow \text{ si } \varphi_x(x) \uparrow
+\end{array}$  
+On a $f(x, y) = \mathcal U(x, x).0 + 13$ donc f est rec partielle.
+
+Soit $a$ son numéro.  
+On applique le s.m.n.  
+On pose $h(x) = s(a, x)$
+
+*/
+
+/* definition
+Soit $C$ un ensemble de fonctions partielles de $\mathbb N \rightarrow \mathbb N$.  
+On dit que $C$ est non trivial si
+
+1. $\exists f$ rec partielle telle que $f \in C$
+2. $\exists f$ rec partielle telle que $f \not \in C$
+
+*/
+
+// theoreme (de Rice)
+Soit $C$ non-trivial. On définit $P_C = \{x~|~\varphi_x \in C\}$.  
+Alors $P_C$ est indécidable.
+
+**Conséquence** Toutes les propriétés des fonctions rec partielles ou des machines de Turing sont
+indécidables.
+
+/* preuve
+*Cas 1* : $\bot \not \in C$  
+Soit $f \in C$ rec partielle.
+
+On va réduire $K \leq_m P_C$  
+Pour ça, on construit $h$ tel que  
+$\begin{array}{r|l}
+\varphi_{h(x)}(y) = & f(y) \text{ si } \varphi_x(x) \downarrow \\
+& \uparrow \text{ si } \varphi_x(x) \uparrow
+\end{array}$
+
+Alors on aura  
+$x\in K \Rightarrow \varphi_{h(x)} = f \in C \Rightarrow h(x) \in P_C$  
+$x \not \in K \Rightarrow \varphi_{h(x)} = \bot \not \in C \Rightarrow h(x) \in P_C$  
+Donc $K \leq_m P_C$.
+
+Pour construire $h(x)$ rec prim, on utilise s.m.n.
+
+*Cas 2* : $\bot \in C$  
+Soit $f \not \in C$ rec partielle.  
+La même réduction que précédemment donne  
+$K \leq_m \overline{P_C} \Rightarrow \overline{P_C}$ indécidable
+
+Donc $P_C$ est indécidable.
+
+*/
+
+// remarque
+Les problèmes sur les machines de Turing peuvent être indécidables.
+
+/* exemple
+Problèmes décidables :
+
+ * Est-ce que la machine de numéro $x$ a un nombre premier d'instructions ?
+ * Est-ce que $\varphi_x(10) = 12$ et que le calcul prend moins de 10^{10^{10}} pas ?
+
+Problèmes indécidables car sur des fonctions calculées :
+
+ * $\varphi_x(y) = y! ~ \forall y$
+ * $\varphi_x()$ est totale
+
+*/
+
+### Semi-décidabilité ###
+
+// remarque
+Pour $K(x)$, Arrêt$(x, y), \varphi_x(10) = 13 ?$, si la réponse est oui alors on le saura.
+
+// definition
+$P\subset \mathbb N^K$ est semi-décidable (*sd*) s'il existe $f$ rec partielle telle que $P = \text{dom} f = \{x~|~f(x)\downarrow\}$.
+
+Variante : Soit
+$\begin{array}{r|l}
+\psi_P(x) = & 1 \text{ si } x \in P \\
+& \uparrow \text{ sinon}
+\end{array}$
+
+// proposition
+$P$ est semi-décidable $\Leftrightarrow \psi_P$ rec partielle
+
+// definition
+$P \subset \mathbb N$ est récursivement énumérable (*re*) si  
+$P \neq \emptyset$ ou $\exists h$ rec totale telle que $P = \text{Im}(h)$
+
+// propriete (Forme normale)
+$P$ semi-décidable $\Rightarrow$ (Pour $R$ rec prim, $x\in P \Leftrightarrow \exists t: R(x, t)$)
+
+// theoreme
+re $\Leftrightarrow$ sd
+
+// indent (Rappel)
+ex2$(n) =$ exposant de 2 dans la factorisation de $n$ en facteurs premiers.  
+ex2$(n) = \mu i\leq n.(2\uparrow(i+1) \nmid n)$
+
+// theoreme (de Post)
+$P$ décidable $\Leftrightarrow P$ semi-décidable et $\overline P$ semi-décidable.
+
+// corrollaire
+$K$ est sd.  
+$\overline K$ n'est pas sd.  
+Arrêt est sd.  
+$\overline{\text{Arrêt}}$ n'est pas sd.
+
+// exemple
+Tot $= \{x~|~\varphi_x \text{ est totale}\} = \{x~|~\forall y, \varphi_x(y)\downarrow\}$
+
+// propriete
+Tot n'est pas sd.  
+$\overline{\text{Tot}}$ n'est pas sd.
 
 
 
