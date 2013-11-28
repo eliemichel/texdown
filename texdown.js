@@ -19,18 +19,19 @@ function makeDeco (s) {
 
 var envDeco = {
 	definition  : [makeDeco('Définition') , ''],
-	theoreme    : [makeDeco('Théorème'),    ''],
+	theoreme    : [makeDeco('Théorème')   , ''],
 	propriete   : [makeDeco('Propriété')  , ''],
 	proposition : [makeDeco('Proposition'), ''],
-	lemme       : [makeDeco('Lemme'),       ''],
-	corollaire  : [makeDeco('Corollaire'),       ''],
+	lemme       : [makeDeco('Lemme')      , ''],
+	corollaire  : [makeDeco('Corollaire') , ''],
 	
 	preuve   : ['<span class="title">Preuve</span>'  , '<div class="proof_end"></div>'],
 	remarque : ['<span class="title">Remarque</span>', ''],
 	exemple  : ['<span class="title">Exemple</span>' , ''],
 	
-	remarques : ['<span class="title">Remarques</span>', ''],
-	exemples  : ['<span class="title">Exemples</span>' , ''],
+	remarques  : ['<span class="title">Remarques</span>'  , ''],
+	exemples   : ['<span class="title">Exemples</span>'   , ''],
+	proprietes : ['<span class="title">Propriétés</span>' , ''],
 	
 	indent : ['<span class="title">LABEL</span>', ''],
 };

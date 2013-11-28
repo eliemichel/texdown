@@ -87,7 +87,7 @@ ul li:before {
 }
 
 .env_definition, .env_theoreme, .env_propriete, .env_proposition, .env_lemme,
-.env_corollaire {
+.env_corollaire, .env_proprietes {
 	border-left : 4px double black;
 	margin-left : 0.5cm;
 	padding-left : 0.5em;
@@ -95,6 +95,9 @@ ul li:before {
 	page-break-inside : avoid;
 }
 
+.env_proprietes ul {
+	padding-left : 0.1cm;
+}
 
 .env_preuve, .env_remarque, .env_exemple, .env_indent {
 	margin-left : 0.5cm;

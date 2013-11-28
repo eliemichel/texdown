@@ -96,19 +96,19 @@ On a une machine de Turing de numéro $m = \langle M \rangle$.
 On cherche à exprimer $f_M : \mathbb N \rightarrow \mathbb N$ en récursion partielle.
 
  1. Soit init$(X) = \langle \overline{\underset{\underset{q_0}\Delta}{0}\underline{111\ldots 1}} \rangle$  
-    init $\in$ RP
+   init $\in$ RP
  2. Soit suivant$(m, c) = \langle \text{conf'} \rangle$
-    avec conf $\overset M \longrightarrow$ conf' et $\langle$conf$\rangle = c$  
-    suivant $\in$ RP
+   avec conf $\overset M \longrightarrow$ conf' et $\langle$conf$\rangle = c$  
+   suivant $\in$ RP
  3. conf$(m, X, t) =$ numéro de la config de la machine $m$ sur l'entrée $X$ après $t$ pas de calcul (ou 0 en cas d'erreur)  
-    conf $\in$ RP
+   conf $\in$ RP
  4. stop$(m, c) =$ 1 ssi $m$ ets bloqué sur la config de numéro $c$  
-    stop $\in$ RP
+   stop $\in$ RP
  5. temps$(m, X) =$ temps de calcul de la machine $m$ sur l'entrée $X$  
-    temps$(m, X) = \mu t.($stop$(m, $conf$(m, X, t)))  
-    temps $\in$ RP
+   temps$(m, X) = \mu t.($stop$(m, $conf$(m, X, t)))$  
+   temps $\in$ RP
  6. sortie$(c) =$ nombre de 1 sur le ruban dans la config de numéro $c$ (ou 0 en cas d'erreur)
-    sortie $\in$ RP
+   sortie $\in$ RP
  7. $\mathcal U(m, X) =$ résultat du calcul de la machine de numéro $m$ sur l'entrée $X$.
 
 */
@@ -414,6 +414,20 @@ Tot $= \{x~|~\varphi_x \text{ est totale}\} = \{x~|~\forall y, \varphi_x(y)\down
 // propriete
 Tot n'est pas sd.  
 $\overline{\text{Tot}}$ n'est pas sd.
+
+
+/* proprietes
+
+ * Soient $P$ et $Q$ sd.  
+   Alors $P \cap Q$ et $P \cup Q$ sont re.
+ * Soit $P(x, y)$ sd
+   Alors $S(y) = "\exists x: P(x, x)"$ est sd.
+
+*/
+
+
+
+
 
 
 
