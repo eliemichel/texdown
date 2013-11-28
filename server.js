@@ -11,13 +11,6 @@ var express = require('express'),
 express()
 
 
-.get('/style.css', function (req, res) {
-	fs.readFile('style.css', function (err, file) {
-		res.end(file);
-	});
-})
-
-
 .get('/:doc', function (req, res) {
 	console.log('Request for ' + req.params.doc);
 	fs.readFile(__dirname + '/sources/' + req.params.doc + '.td', 'utf8', function (err, source) {
@@ -37,6 +30,9 @@ express()
 				}
 				
 				var body = texdown(source);
+				if (req.query.style) {
+					start = start.replace('public/style/style.css', 'public/style/' + req.query.style + '.css');
+				}
 				res.end(start + body + end);
 			});
 		});

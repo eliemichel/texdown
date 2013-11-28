@@ -425,6 +425,15 @@ $\overline{\text{Tot}}$ n'est pas sd.
 
 */
 
+// theoreme
+$P(x)$ est re $\Leftrightarrow$ (pour un polynôme $\varphi$, on a $P(x) \Leftrightarrow \exists y: \varphi(x, y) = 0$)
+
+//corollaire
+Soit $\psi$ un polynôme à coefficients entiers.  
+Il est indécidable si $\exists x: \psi(x) = 0$.
+
+
+
 
 
 
