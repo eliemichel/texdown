@@ -124,8 +124,9 @@ block.tables = merge({}, block.gfm, {
 
 block.texdown = merge({}, block.gfm, {
 	env: /^ *\/\/ *(\w*) *(?:\((.*?)\))? *\nparagraph/,
-	env_start: /^ *\/\* *(\w*) *\n*/,
-	env_end: /^ *\*\/ *\n*/
+	env_start: /^ *\/\* *(\w*) *(?:\((.*?)\))? *\n*/,
+	env_end: /^ *\*\/ *\n*/,
+	option: /^\! *(\w*) *= *(\w*)/
 });
 
 block.texdown.env = replace(block.texdown.env)
@@ -482,6 +483,16 @@ Lexer.prototype.token = function(src, top) {
       });
       continue;
     }
+
+
+    // option (texdown)
+    if (top && (cap = this.rules.option.exec(src))) {
+      src = src.substring(cap[0].length);
+      
+      this.options.td[cap[1]] = cap[2];
+      continue;
+    }
+
 
     // top-level paragraph
     if (top && (cap = this.rules.paragraph.exec(src))) {
@@ -1249,6 +1260,7 @@ marked.setOptions = function(opt) {
 
 marked.defaults = {
   texdown: true,
+  td: {},
   gfm: true,
   tables: true,
   breaks: false,

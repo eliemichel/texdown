@@ -106,9 +106,15 @@ parenthesis) dans the text between `[` and `]` will be hidden when no label is s
 Typically, `LABEL` will be displayed inside the braces.
 
 ### Change page style ###
-The entire page is diplayed in a html file so you can customize it *via* the `style.css` file.
+The entire page is diplayed in a html file so you can customize it *via* the `default.css` file.
 
-You can also change the `texdown_start.html` and `texdown_end.html` files to have the page customized.
+You can specify a different style file through two different ways :
+
+ * Add `?style=another_style` at the end of the request to load the page with `another_style.css`.
+ * But you can also specify the default style for a given document by inserting an option paragraph like so : `!style=another_style`.
+   Then the basic request will display the document with `another_style.css`.
+
+You can also change the `texdown_start.html` and `texdown_end.html` files to have the page frame customized.
 
 ### LaTeX commands ###
 As specified in MathJax documentation, you can add new LaTeX commands with `MathJax.Hub.Config({TeX:{foo:'bar'}})`.
@@ -121,5 +127,8 @@ An example is given in `texdown_end.html`.
  * Improve the customization way (editing texdown.js file is bad !)
  * Add LABEL and brace escape in header/footer
  * Add LABEL replacement in footer
- * Custom styles
+ * Add latex block
+ * Simplify latex maths redaction
+
+
 

@@ -1,0 +1,137 @@
+/**
+ * texdown - a custom markdown parser
+ * Copyright (c) 2013-2013, Elie Michel. (MIT Licensed)
+ *
+ */
+
+html {
+	background-color : white;
+	color : rgb(51,51,51);
+	
+	padding-top : 50px;
+	padding-bottom : 20px;
+}
+
+body {
+	font-family : Helvetica, Ubuntu;
+	font-size : 15px;
+	line-height : 1.7;
+	
+	width : 21cm;
+	margin : auto;
+	margin-bottom : 0px;
+	margin-top : 0px;
+	padding : 0px;
+	padding-top : 20px;
+	
+	overflow : auto;
+	
+	background-color : #eee;
+	
+	border : 3px solid rgb(240,240,255);
+	border-top : 0px;
+}
+
+#main {
+	padding : 30px;
+	
+	border : 1px solid rgb(202,202,202);
+	
+	background-color : white;
+	
+	-webkit-box-sizing : border-box;
+}
+
+
+
+h1 {
+	text-align : center;
+}
+
+h2, h3, h4, h5, h6 {
+	border-bottom : 1px solid rgb(238, 238, 238);
+	margin-bottom : 15px;
+}
+
+pre, code {
+	font-family : Consolas, 'Liberation Mono', Courier, monospace;
+	font-size : 11.8px;
+	line-height : 19px;
+	
+	display : block;
+	
+	padding-left : 5px;
+	padding-right : 5px;
+	
+	background-color : rgb(248,248,248);
+	border : 1px solid #ddd;
+	border-radius : 0.2em;
+}
+
+
+pre code {
+	background : none;
+	border : none;
+}
+
+
+hr {
+	height : 0px;
+	border : 0px;
+	border-top : 1px solid rgba(0,0,0,0.2);
+	border-bottom : 1px solid rgba(240,240,240,0.5);
+}
+
+ul {
+	padding-left : 0.5cm;
+}
+
+/* ---------- ENVIRONNEMENTS ----------- */
+
+.title {
+	display : block;
+	font-weight : bold;
+	margin-bottom : -15px;
+}
+
+.env_definition, .env_theoreme, .env_propriete, .env_proposition, .env_lemme,
+.env_corollaire, .env_proprietes {
+	margin-left : 0.5cm;
+	padding-left : 0.5em;
+	
+	page-break-inside : avoid;
+}
+
+.env_proprietes ul {
+	padding-left : 0.1cm;
+}
+
+.env_preuve, .env_remarque, .env_exemple, .env_indent {
+	margin-left : 0.5cm;
+	
+	page-break-inside : avoid;
+}
+
+.env_remarques, .env_exemples {
+	page-break-inside : avoid;
+}
+
+.label_env {
+	font-weight : none;
+	font-style : italic;
+}
+
+.proof_end {
+	float : right;
+	
+	width : 0.25cm;
+	height : 0.25cm;
+	
+	margin-top : -1em;
+	
+	border : 1px solid black;
+}
+
+
+
+

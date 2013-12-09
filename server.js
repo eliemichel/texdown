@@ -29,9 +29,11 @@ express()
 					return;
 				}
 				
-				var body = texdown(source);
-				if (req.query.style) {
-					start = start.replace('public/style/style.css', 'public/style/' + req.query.style + '.css');
+				var options = {}
+				var body = texdown(source, {td:options});
+				var style = req.query.style || options.style;
+				if (style) {
+					start = start.replace('public/style/default.css', 'public/style/' + style + '.css');
 				}
 				res.end(start + body + end);
 			});
