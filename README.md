@@ -129,6 +129,6 @@ An example is given in `texdown_end.html`.
  * Add LABEL replacement in footer
  * Add latex block
  * Simplify latex maths redaction
-
+ * Inclusion or partial inclusion (based on group id) of svg file
 
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env nodejs
+
 /**
  * texdown - a custom markdown parser
  * Copyright (c) 2013-2013, Elie Michel. (MIT Licensed)

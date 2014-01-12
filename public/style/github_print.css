@@ -8,7 +8,7 @@ html {
 	background-color : white;
 	color : rgb(51,51,51);
 	
-	padding-top : 50px;
+	padding-top : 0px;
 	padding-bottom : 20px;
 }
 
@@ -20,22 +20,22 @@ body {
 	width : 21cm;
 	margin : auto;
 	margin-bottom : 0px;
-	margin-top : 0px;
+	margin-top : -40px;
 	padding : 0px;
-	padding-top : 20px;
+	padding-top : -20px;
 	
 	overflow : auto;
 	
 	background-color : #eee;
 	
-	border : 3px solid rgb(240,240,255);
+	/*border : 3px solid rgb(240,240,255);*/
 	border-top : 0px;
 }
 
 #main {
 	padding : 30px;
 	
-	border : 1px solid rgb(202,202,202);
+	/*border : 1px solid rgb(202,202,202);*/
 	
 	background-color : white;
 	
@@ -58,6 +58,8 @@ pre, code {
 	font-size : 11.8px;
 	line-height : 19px;
 	
+	/*display : block;*/
+	
 	padding-left : 5px;
 	padding-right : 5px;
 	
@@ -72,7 +74,6 @@ pre code {
 	border : none;
 	display : block;
 }
-
 
 
 hr {

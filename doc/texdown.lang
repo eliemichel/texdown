@@ -37,6 +37,7 @@
     
     <style id="env-type" _name="Environment type" map-to="def:keyword"/>
     <style id="env-label" _name="Environment label" map-to="def:type"/>
+    <style id="option" _name="Option" map-to="def:bracket-match"/>
   </styles>
 
   <definitions>
@@ -378,6 +379,10 @@
       </include>
     </context>
     
+    <context id="option" style-ref="option">
+      <match>^\! *\w+ *= *\w+</match>
+    </context>
+    
 
     <context id="texdown-syntax">
       <include>
@@ -404,6 +409,7 @@
         <context ref="env"/>
         <context ref="env-end"/>
         <context ref="latex"/>
+        <context ref="option"/>
       </include>
     </context>
 
