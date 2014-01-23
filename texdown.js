@@ -122,7 +122,7 @@ block.tables = merge({}, block.gfm, {
  * GFM + Texdown
  */
 
-block.texdown = merge({}, block.gfm, {
+block.texdown = merge({}, block.tables, {
 	env: /^ *\/\/ *(\w*) *(?:\((.*?)\))? *\nparagraph/,
 	env_start: /^ *\/\* *(\w*) *(?:\((.*?)\))? *\n*/,
 	env_end: /^ *\*\/ *\n*/,
