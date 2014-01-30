@@ -456,7 +456,8 @@ Lexer.prototype.token = function(src, top) {
       src = src.substring(cap[0].length);
       this.tokens.push({
         type: 'env_start',
-        env: cap[1]
+        env: cap[1],
+        label: cap[2]
       });
       continue;
     }
