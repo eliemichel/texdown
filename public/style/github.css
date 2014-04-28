@@ -32,6 +32,16 @@ body {
 	border-top : 0px;
 }
 
+
+a {
+	text-decoration : none;
+	color : #4183c4
+}
+
+a : hover {
+	text-decoration : underline;
+}
+
 #main {
 	padding : 30px;
 	

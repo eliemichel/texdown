@@ -33,7 +33,7 @@ var envDeco = {
 	exemples   : ['<span class="title">Exemples</span>'   , ''],
 	proprietes : ['<span class="title">Propriétés</span>' , ''],
 	
-	indent : ['<span class="title">LABEL</span>', ''],
+	indent : ['<span class="title">[LABEL]</span>', ''],
 };
 
 
